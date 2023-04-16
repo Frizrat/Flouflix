@@ -14,13 +14,8 @@ function gen_indicators() {
         elements_indicators(slider.querySelectorAll('.element'));
         let indicators = slider.parentElement.querySelector('.indicators');
 
-        if (nb_indicators < 2) {
-            slider.parentElement.querySelector('.move').style.display = 'none';
-            indicators.style.display = 'none';
-        } else {
-            slider.parentElement.querySelector('.move').style.display = '';
-            indicators.style.display = '';
-        }
+        slider.parentElement.querySelector('.move').style.display = nb_indicators < 2 || window.innerWidth < 600 ? 'none' : '';
+        indicators.style.display = nb_indicators < 2 ? 'none' : '';
 
         indicators.innerHTML = '';
         for (let i=0; i<nb_indicators; i++) {
