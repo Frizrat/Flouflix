@@ -1,0 +1,57 @@
+{
+  "module_infos": {
+    "module_name": "",
+    "img": {
+      "url": "",
+      "style": ""
+    },
+    "initials": "",
+    "language": "",
+    "developer": "",
+    "desc": ""
+  },
+  "main": {
+    "request": {
+      "url": "",
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction main(document) { let sections = {}; for (let section of document.querySelectorAll(/* The sections */)) { let section_name = ''; sections[section_name] = []; for (let element of section.querySelectorAll(/* The elements */)) { sections[section_name].push({ link: '', /* Link */ title: '', /* Title */ img: '', /* Image */ left: '', /* Detail top green */ center: '', /* Detail top surrounded */ right: '', /* Detail top right */ genres: [] /* Details bottom */ }) } } return sections;}"
+    }
+  },
+  "search": {
+    "request": {
+      "url": "${search.s}${search.page}",
+      "first_page": 1,
+      "page_spacing": 1,
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction search(document) { let results = []; for (let results of document.querySelectorAll(/* The results */)) { results.push({ link: '', /* Link */ title: '', /* Title */ img: '', /* Image */ left: '', /* Detail top green */ center: '', /* Detail top surrounded */ right: '', /* Detail top right */ genres: [] /* Details bottom */ }) } return results;}"
+    }
+  },
+  "info": {
+    "request": {
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction info(document) { let infos = {}; infos['type'] = ''; /* Type next to Flouflix icon */ infos['title'] = ''; /* Title */ infos['img'] = ''; /* Image */ infos['details'] = []; /* Details under the title */ infos['desc'] = ''; /* Desc */ infos['genres'] = []; /* Genres */ infos['contents'] = {}; /* Contents */ for (let lang of document.querySelectorAll(/* Part */)) { infos['contents'][/* Part name */] = Array.from(content.querySelectorAll(/* Elements */)).map(ep => { return { link: link + '#' + ep.getAttribute('rel'), img: infos['img'], title: ep.textContent } }) } return infos}"
+    }
+  },
+  "video": {
+    "request": {
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction video(document) { let players = []; Array.from(document.querySelectorAll(/* Players */)).forEach(p => { players.push('') /* Player link */ }); return players;}"
+    }
+  }
+}
