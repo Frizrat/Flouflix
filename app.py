@@ -15,6 +15,9 @@ HTML = {
 def reload():
     global modules
     modules = json.load(open('./static/modules.json', 'r+', encoding='utf-8'))
+    for type, sites in modules.items():
+        for site, link in sites.items():
+            modules[type][site] = session.get(link).json()
     try: return redirect(request.headers['Referer'])
     except: return redirect('/')
     
