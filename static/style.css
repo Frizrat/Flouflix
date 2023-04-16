@@ -3,9 +3,9 @@
     :root {
         --element-square: 200px;
         --element-width-vertical: 170px;
+        --element-width-vertical-mobile: 140px;
         --element-height-vertical: 250px;
-        --element-width-vertical-mobile: 150px;
-        --element-height-vertical-mobile: 225px;
+        --element-height-vertical-mobile: 200px;
     }
     @keyframes blur_not_hover { 0% { filter: blur(0); } 100% { filter: blur(2px); } }
     @keyframes not_blur_hover { 0% { filter: blur(2px); } 100% { filter: blur(0); } }
@@ -35,7 +35,7 @@
 
 /* Header */
     header { position: fixed; left: 0; right: 0; }
-    .icon_logo { display: flex; align-items: center; width: 123px; }
+    .icon_logo { display: flex; align-items: center; }
     .logo { height: 29.75px; }
     .icon { height: 40px; display: none; }
 
@@ -271,7 +271,7 @@ li { cursor: pointer; }
     right: 0;
     margin-left: calc(3% + 150px);
     width: calc(94% - 300px);
-    aspect-ratio: 11/7;
+    aspect-ratio: 10/7;
 }
 
 .players { overflow: scroll; }
@@ -292,8 +292,9 @@ main > iframe {
 
 
 @media screen  and (max-width: 600px)  {
+    .icon_log { width: 75px; }
     .logo { display: none; }
-    .icon { display: block; width: 75px; }
+    .icon { display: block; }
     
     .input-search, .input-search:focus, .btn-search:focus ~ .input-search {
         width: 200px;
@@ -317,7 +318,7 @@ main > iframe {
         width: 75px;
         font-size: 12px;
     }
-    .element {
+    .element:not(.square) {
         width: var(--element-width-vertical-mobile);
         height: var(--element-height-vertical-mobile);
     }
@@ -335,9 +336,26 @@ main > iframe {
         padding: 5px 10px;
         overflow: hidden;
     }
-    
     .element__title {
         width: var(--element-width-vertical-mobile);
         height: 50px;
+    }
+    .banner__icon { height: 24px; }
+    .banner__type { font-size: 12px; }
+    .banner__title {
+        width: 100%;
+        font-size: 3rem;
+        line-height: 45px;
+    }
+    h3 { font-size: 20px; }
+    .infos p {
+        font-size: 12px;
+        width: 100%;
+    }
+  
+    .iframe-container iframe {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 50%;
     }
 }
