@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}<script src="{{ url_for('static', filename='js/slider.js') }}"></script>{% endblock %}
+
+{% block main %}
+      <div class="infos">
+        <div class="banner">
+          <img class="banner__icon" src="{{ url_for('static', filename='svg/icon_flouflix.svg') }}" type="image/svg+xml">
+          <span class="banner__type text-grey"></span>
+          <h1 class="banner__title"></h1>
+        </div>
+        <h3></h3>
+        <p class="infos__details text-grey"></p>
+        
+        <p class="desc"></p>
+        
+        <p class="genres"><span class="text-grey">Genres : </span></p>
+        <div class="bg"><img src="" class="bg__img"></div>
+      </div>
+      <div class="contents">
+        <section class="container">
+          <h2></h2>
+          <div class="indicators"></div>
+          <nav class="move">
+            <button type="button" onclick="slide_button(this)" class="move__btn moveL">ᐊ</button>
+            <button type="button" onclick="slide_button(this)" class="move__btn moveR">ᐅ</button>
+          </nav>
+          <ul class="slider" onscroll="slide_scroll(this)">
+            <li class="element" data-link="" onclick="show_iframe(this.getAttribute('data-link'))">
+              <img src="" class="element__img">
+              <h4 class="element__title"></h4>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="iframe-container" style="display: none;" onclick="show_iframe('')">
+        <iframe src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+{% endblock %}

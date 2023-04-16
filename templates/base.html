@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='svg/icon_flouflix.svg') }}" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{{ title }}{% if title %} | {% endif %}Flouflix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script> const modules = {{ modules|tojson }}; </script>
+    {% block head %}{% endblock %}
+  </head>
+  <body onresize="gen_indicators()">
+    <header>
+      <a href="/" class="icon_logo">
+        <img class="logo" src="{{ url_for('static', filename='svg/logo_flouflix.svg') }}" type="image/svg+xml">
+        <img class="icon" src="{{ url_for('static', filename='svg/icon_flouflix.svg') }}" type="image/svg+xml">
+      </a>
+      <div class="search-box">
+        <button class="btn-search" onfocus="this.setAttribute('onclick', 'research()')" onblur="this.setAttribute('onclick', '')"><i class="fa fa-search"></i></button>
+        <input type="text" class="input-search" placeholder="Type to Search..." onchange="research()">
+      </div>
+      <select id="modules" onchange="change_module(this.querySelector('option:checked'))"></select>
+    </header>
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/'+js_file+'.js') }}"></script>
+    <footer>
+      <a href="/reload/" class="text-grey">Reload module</a>
+      <a id="download" class="text-grey">Download module html file</a>
+    </footer>
+  </body>
+</html>

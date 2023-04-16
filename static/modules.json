@@ -1,0 +1,60 @@
+{
+  "Video": {
+    "Wiflix":{
+      "module_infos": {
+        "img": {
+          "url": "https://wiflix.audio/templates/wiflixnew/images/logo.png",
+          "style": "object-fit: contain;"
+        },
+        "initials": "WF",
+        "language": "FR",
+        "developer": "Frizrat",
+        "desc": "Module for Wiflix"
+      },
+      "main": {
+        "request": {
+          "url": "https://wiflix.audio/",
+          "headers": {},
+          "proxies": false
+        },
+        "javascript_config": {
+          "remove": true,
+          "javascript": "function main(document) { let sections = {}; for (let section of document.querySelectorAll('.block-main')) {let section_name = section.querySelector('.block-title span').textContent;sections[section_name] = [];for (let film of section.querySelectorAll('.mov')) {sections[section_name].push({link: film.querySelector('a')['href'],title: film.querySelector('.mov-t').textContent,img: 'https://wiflix.biz/wfimages/' + film.querySelector('img')['src'].split('=')[1],left: '',center: film.querySelector('.ml-desc').textContent,right: Array.from(film.querySelectorAll('.ml-desc')).slice(-2)[0].textContent,genres: Array.from(film.querySelectorAll('.nbloc3 a')).map(genre => genre.textContent)})}} return sections;}"
+        }
+      },
+      "search": {
+        "request": {
+          "url": "https://wiflix.audio/index.php/search/?story=${search.s}&do=search&search_start=${search.page}&subaction=search&submit=Submit/",
+          "first_page": 1,
+          "page_spacing": 1,
+          "headers": {},
+          "proxies": false
+        },
+        "javascript_config": {
+          "remove": true,
+          "javascript": "function search(document) {let results = [];for (let film of document.querySelectorAll('.mov')) {results.push({link: film.querySelector('a')['href'],title: film.querySelector('.mov-t').textContent,img: 'https://wiflix.biz/wfimages/' + film.querySelector('img')['src'].split('=')[1],left: '',center: film.querySelector('.ml-desc').textContent,right: Array.from(film.querySelectorAll('.ml-desc')).slice(-2)[0].textContent,genres: Array.from(film.querySelectorAll('.nbloc3 a')).map(genre => genre.textContent)})} return results;}"
+        }
+      },
+      "info": {
+        "request": {
+          "headers": {},
+          "proxies": false
+        },
+        "javascript_config": {
+          "remove": true,
+          "javascript": "function info(document) {const link = document.querySelector('[property=\"og:url\"]').content; let infos = {'type': 'Serie'}; infos['title'] = document.querySelector('.full-title').textContent.trim(); infos['img'] = 'https://wiflix.biz/wfimages/' + document.querySelector('#posterimg')['src'].split('=')[1]; infos['details'] = Array.from(document.querySelectorAll('.mov-list a')).map(a => a.textContent).join(' | '); infos['desc'] = document.querySelector('[itemprop=\"depion\"]').textContent; infos['genres'] = Array.from(document.querySelectorAll('.mov-list a')).map(a => a.textContent).join(', '); infos['contents'] = {}; for (let lang of ['vostfr', 'fr']) { let content = document.querySelector(`.bloc${lang}`); if (content == null) {infos['type'] = 'Film'; infos['contents'][''] = [{ link: link, img: infos['img'], title: infos['title'] }]; break; } infos['contents'][content.querySelector('.stitle').textContent] = Array.from(content.querySelectorAll('.clicbtn')).map(ep => { return { link: link+'#'+ep.getAttribute('rel'), img: infos['img'], title: ep.textContent } }) } return infos}"
+        }
+      },
+      "video": {
+        "request": {
+          "headers": {},
+          "proxies": false
+        },
+        "javascript_config": {
+          "remove": true,
+          "javascript": "function video(document) { let players = []; ['[target=\"x_player_wfx\"]', `.${request['url'].split('#')[1]} [target=\"x_player\"]`].forEach(selector => { Array.from(document.querySelectorAll(selector)).forEach(p => { players.push(p.href.split('?u=')[1]) }); }); return players; }"
+        }
+      }
+    }
+  }
+}

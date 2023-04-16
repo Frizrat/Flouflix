@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 1000" aria-hidden="true" focusable="false">
+    <title>Icon Flouflix</title>
+    <defs>
+        <linearGradient id="grad" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="black" stop-opacity=".4"/>
+            <stop offset="100%" stop-color="#b1060e" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <path d="
+        M 0 0
+            h 552
+            v 197
+            h -552
+        
+        M 0 394
+            h 400
+            v 197
+            h -276
+    " fill="#b1060e"></path>
+    <path d="
+        M 197 0
+            h 50
+            v 197
+            h -50
+
+        M 197 394
+            h 50
+            v 197
+            h -50
+    " fill="url(#grad)"></path>
+    <path d="
+        M 0 0
+        v 1000
+        c 60-8 138-14 198-17
+        V 0
+    " fill="#e50914"></path>
+</svg>
