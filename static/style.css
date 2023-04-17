@@ -11,9 +11,7 @@
     @keyframes not_blur_hover { 0% { filter: blur(2px); } 100% { filter: blur(0); } }
 
     header, footer {
-        background-color: #000;
         display: flex;
-        height: 56px;
         justify-content: space-between;
         padding: 16px 3%;
         z-index: 5;
@@ -30,11 +28,14 @@
     img { animation: blur_not_hover 0.8s; filter: blur(2px); }
     img:hover { animation: not_blur_hover 0.8s; filter: blur(0); }
 
-    main { padding-top: 70px; min-height: calc(100% - 56px); }
+    main { padding-top: 70px; min-height: calc(100% - 101px); }
+    
+    .text-grey { color: grey; }
+    .text-dark-grey { color: darkgrey; }
 /* End Globals */
 
 /* Header */
-    header { position: fixed; left: 0; right: 0; }
+    header { position: fixed; left: 0; right: 0; height: 56px; background-color: black; }
     .icon_logo { display: flex; align-items: center; }
     .logo { height: 29.75px; }
     .icon { height: 40px; display: none; }
@@ -91,6 +92,17 @@
         border-radius: 10px;
     }
 /* End Header */
+/* Footer */
+    footer {
+        font-size: 15px;
+        padding-top: 50px;
+        background: linear-gradient(to bottom, #18181800, #181818 30px);
+    }
+    footer .right a, footer .right a:not(:nth-last-child(1))::after {
+        margin-left: 7px;
+        content: "|";
+    }
+/* End Footer */
 
 section { margin: 10px 0; }
 
@@ -205,74 +217,83 @@ h2 { text-align: center; }
 }
 .result { margin: 0 10px 80px; }
 
-.infos {
-    margin-top: 10rem;
-    padding: 25px 5vw;
-}
-.text-grey { color: grey; }
-.banner { min-width: 70px; }
-.banner__icon { height: 28px; }
-.banner__type {
-    vertical-align: super;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-.banner__title {
-    width: 32rem;
-    font-size: 4rem;
-    word-break: break-word;
-    line-height: 60px;
-    margin-left: -5px;
-}
-h3 {
-    font-size: 24px;
-    margin-top: 2.5rem;
-}
-.infos p {
-    font-size: 14px;
-    margin-top: 1rem;
-    width: 35rem;
-}
-.bg {
-    position: absolute;
-    top: 56px;
-    left: 0;
-    filter: brightness(0.25);
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: linear-gradient(to right, #181818 10%, #18181800 15vw, #181818);
-    z-index: -1;
-}
-.bg__img {
-    width: 100%;
-    min-width: 100vh;
-    filter: blur(5px);
-    object-fit: cover;
-    object-position: top;
-}
-li { cursor: pointer; }
+/* Info */
+    .infos {
+        margin-top: 10rem;
+        padding: 25px 5vw;
+    }
+    .banner { min-width: 70px; }
+    .banner__icon { height: 28px; }
+    .banner__type {
+        vertical-align: super;
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+    .banner__title {
+        width: 32rem;
+        font-size: 4rem;
+        word-break: break-word;
+        line-height: 60px;
+        margin-left: -5px;
+    }
+    h3 {
+        font-size: 24px;
+        margin-top: 2.5rem;
+    }
+    .infos p {
+        font-size: 14px;
+        margin-top: 1rem;
+        width: 35rem;
+    }
+    .details span:not(:nth-last-child(1))::after {
+        margin: 0 5px;
+        content: '|';
+    }
+    .genres span:not(:nth-last-child(1))::after {
+        margin-right: 3px;
+        content: ',';
+    }
+    .bg {
+        position: absolute;
+        top: 56px;
+        left: 0;
+        filter: brightness(0.25);
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: linear-gradient(to right, #181818 10%, #18181800 15vw, #181818);
+        z-index: -1;
+    }
+    .bg__img {
+        width: 100%;
+        min-width: 100vh;
+        filter: blur(5px);
+        object-fit: cover;
+        object-position: top;
+    }
+    li { cursor: pointer; }
 
-.iframe-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #0000008a;
-    z-index: 5;
-}
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin-left: calc(3% + 150px);
-    width: calc(94% - 300px);
-    aspect-ratio: 10/7;
-}
+    .iframe-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black0008a;
+        z-index: 5;
+    }
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin-left: calc(3% + 150px);
+        width: calc(94% - 300px);
+        aspect-ratio: 10/7;
+    }
+/* End Info */
 
 .players { overflow: scroll; }
 .player {

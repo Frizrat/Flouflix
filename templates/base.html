@@ -26,10 +26,13 @@
       {% block main %}{% endblock %}
     </main>
     <footer>
-      <a href="/reload/" class="text-grey">Reload module</a>
-      <a href="{{ url_for('static', filename='module_template.json') }}" class="text-grey" download>Get module template file</a>
-      <a href="/upload/" class="text-grey">Upload module</a>
-      <a id="download" class="text-grey">Download module html file</a>
+      <a href="/reload/" class="left text-dark-grey">Reload module</a>
+      <div class="right">
+        <span class="text-dark-grey">Dev tools : </span><br>
+        <a href="{{ url_for('static', filename='module_template.json') }}" class="text-grey" download>Get module template file</a>
+        <a href="/upload/" class="text-grey">Upload module</a>
+        <a href="" id="download" class="text-grey">Download module html file</a>
+      </div>
     </footer>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% if js_file %}<script src="{{ url_for('static', filename='js/'+js_file+'.js') }}"></script>{% endif %}

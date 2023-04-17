@@ -2,7 +2,13 @@
     const infos = await requestURL(url_search());
     
     document.querySelector('title').innerHTML = `${infos['title']} | ${document.querySelector('title').innerHTML}`;
-    [['.banner__type', 'type'], ['.banner__title', 'title'], ['h3', 'title'], ['.infos__details', 'details'], ['.desc', 'desc'], ['.genres', 'genres']].forEach(info => document.querySelector(info[0]).innerHTML += infos[info[1]]);
+    [['.banner__type', 'type'], ['.banner__title', 'title'], ['h3', 'title'], ['.desc', 'desc']].forEach(info => document.querySelector(info[0]).innerHTML = infos[info[1]]);
+
+    ['details', 'genres'].forEach(selector => infos[selector].forEach(detail => {
+        let span = document.createElement('span');
+        span.innerHTML = detail;
+        document.querySelector(`.${selector}`).appendChild(span);
+    }))
     document.querySelector('.bg__img').src = infos['img'];
 
     Object.entries(infos['contents']).forEach(contents => {
@@ -26,7 +32,11 @@
     adapte_height_bg();
 })()
 
-function adapte_height_bg() { document.querySelector('.bg').style.height = document.querySelector('main').getClientRects()[0].height+'px'; }
+function adapte_height_bg() { document.querySelector('.bg').style.height = (
+      document.querySelector('main').getClientRects()[0].height
+    + document.querySelector('footer .right').getClientRects()[0].height
+    + 'px'
+)}
 document.body.setAttribute('onresize', document.body.getAttribute('onresize')+'; adapte_height_bg()');
 
 function show_iframe(link) {

@@ -1,5 +1,6 @@
 document.querySelector('.search-box').remove();
 document.querySelector('select').remove();
+document.querySelector('#download').remove();
 
 Object.entries(modules).forEach(module => {
     let section = document.querySelector('section').cloneNode(true);
