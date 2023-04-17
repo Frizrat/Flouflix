@@ -250,7 +250,7 @@ h2 { text-align: center; }
         margin: 0 5px;
         content: '|';
     }
-    .genres span:not(:nth-last-child(1))::after {
+    .genres span:not(:nth-child(1)):not(:nth-last-child(1))::after {
         margin-right: 3px;
         content: ',';
     }
