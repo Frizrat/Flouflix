@@ -18,7 +18,7 @@
     },
     "javascript_config": {
       "remove": true,
-      "javascript": "function main(document) { let sections = {}; for (let section of document.querySelectorAll('.block-main')) {let section_name = section.querySelector('.block-title span').textContent;sections[section_name] = [];for (let film of section.querySelectorAll('.mov')) {sections[section_name].push({link: film.querySelector('a')['href'],title: film.querySelector('.mov-t').textContent,img: 'https://wiflix.biz/wfimages/' + film.querySelector('img')['src'].split('=')[1],left: '',center: film.querySelector('.ml-desc').textContent,right: Array.from(film.querySelectorAll('.ml-desc')).slice(-2)[0].textContent,genres: Array.from(film.querySelectorAll('.nbloc3 a')).map(genre => genre.textContent)})}} return sections;}"
+      "javascript": "function main(document) { let sections = []; for (let section of document.querySelectorAll('.block-main')) { let elements = []; for (let film of section.querySelectorAll('.mov')) { elements.push(new Element( new Link(film.querySelector('a')['href']), film.querySelector('.mov-t').textContent, new Img('https://wiflix.biz/wfimages/' + film.querySelector('img')['src'].split('=')[1], 'portrait'), '', film.querySelector('.ml-desc').textContent, Array.from(film.querySelectorAll('.ml-desc')).slice(-2)[0].textContent, Array.from(film.querySelectorAll('.nbloc3 a')).map(genre => genre.textContent) )) }sections.push(new Section(section.querySelector('.block-title span').textContent, elements)) } return sections;}"
     }
   },
   "search": {
