@@ -51,7 +51,7 @@
     },
     "javascript_config": {
       "remove": true,
-      "javascript": "function video(document) { let players = []; ['[target=\"x_player_wfx\"]', `.${request['url'].split('#')[1]} [target=\"x_player\"]`].forEach(selector => { Array.from(document.querySelectorAll(selector)).forEach(p => { players.push(p.href.split('?u=')[1]) }); }); return players; }"
+      "javascript": "function video(document) { let players = []; ['[target=\"x_player_wfx\"]', `.${request['url'].split('#')[1]} [target=\"x_player\"]`].forEach(selector => { Array.from(document.querySelectorAll(selector)).forEach(p => { players.push(new Genre_Player('', p.href.split('?u=')[1])) }); }); return players;}"
     }
   }
 }
