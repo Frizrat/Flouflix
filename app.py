@@ -4,25 +4,24 @@ from flask import Flask, render_template, redirect, request
 app = Flask(__name__)
 session = requests.session()
 
-MODULE_PATH = './static/modules.json'
-HTML = {
-    'main': 'slider',
-    'search': 'slider',
+MODULES_PATH = './static/modules.json'
+LNK_TO_FILE = {
+    'main': 'sections',
+    'search': 'sections',
     'info': 'info',
     'video': 'video',
 }
 
 def open_module_file():
     global modules
-    modules = json.load(open(MODULE_PATH, 'r+', encoding='utf-8'))
+    modules = json.load(open(MODULES_PATH, 'r+', encoding='utf-8'))
 
 @app.route('/')
-def index(): return render_template('slider.html', modules=modules, js_file='index')
+def index(): return render_template('index.html', modules=modules)
 
 @app.route('/<type>/<site>/<page>/', methods=['GET'])
 def page(type, site, page):
-    title = f'{request.args.get("s")} | {site}'.replace('None | ', '')
-    return render_template(f'{HTML[page]}.html', modules=modules, site=site, title=title, js_file=page)
+    return render_template(f'{LNK_TO_FILE[page]}.html', modules=modules, site=site, file=LNK_TO_FILE[page])
     
 @app.route('/requestURL/', methods=['POST'])
 def requestURL():
@@ -40,13 +39,15 @@ def reload():
     try: return redirect(request.headers['Referer'])
     except: return redirect('/')
 
-@app.route('/upload/', methods=['GET', 'POST'])
+@app.route('/doc/')
+def doc(): return render_template('doc.html', modules=modules)
+
+@app.route('/upload/', methods=['POST'])
 def upload():
-    if request.method == 'GET': return render_template('upload.html', modules=modules)
     if (site := request.form['site'].title()) not in modules[request.form['type']]:
         open_module_file()
         modules[request.form['type']][site] = request.form['link']
-        open(MODULE_PATH, 'w+', encoding='utf-8').write(json.dumps(modules, indent=2, ensure_ascii=False))
+        open(MODULES_PATH, 'w+', encoding='utf-8').write(json.dumps(modules, indent=2, ensure_ascii=False))
         reload()
     return redirect(f'/{request.form["type"]}/{site}/main/')
 

@@ -44,6 +44,7 @@ async function requestURL(url) {
     return await new Promise(resolve => xhr.onload = () => {
         let doc = new DOMParser().parseFromString(xhr.responseText.replaceAll('script'.repeat(+rem), 'p'.repeat(+rem)), 'text/html');
 
+        doc.body.appendChild(document.querySelector('#flouflix_functions'));
         script.innerHTML += `\nconsole.log(${href[2]}(document));\n`;
         doc.body.appendChild(script);
 

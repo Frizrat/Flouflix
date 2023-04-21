@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{% if request.args.get("s") %}{{ request.args.get("s") }} | {% endif %}{{ site }} | {% endblock %}
+{% block head %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">{% endblock %}
+
+{% block header %}
+    <div class="search-box">
+      <button class="btn-search" onclick="research()"><i class="fa fa-search"></i></button>
+      <input type="text" class="input-search" placeholder="Type to Search..." onchange="research()">
+    </div>
+    <select id="modules" onchange="change_module(this.querySelector('option:checked'))"></select>
+{% endblock %}
+
+{% block footer %}<a href="" id="download" class="text-grey">Download module html file</a>{% endblock %}
+
+{% block end_body %}
+  <script id="flouflix_functions">
+    function Element(link=new Link, title='', img=new Img, left='', center='', right='', genres=[]) {
+      this.link = link;
+      this.title = title;
+      this.img = img;
+      this.left = left;
+      this.center = center;
+      this.right = right;
+      this.genres = genres;
+    }
+    function Link(url='', headers={}, proxies=false) {
+      this.url = url;
+      this.headers = headers;
+      this.proxies = proxies;
+    }
+    function Img(url='', type='portrait') {
+      this.url = url;
+      this.type = type;
+    }
+    function Genre_Player(name='', url='') {
+      this.name = name ? name : url.split('.')[0].split('//').slice(-1)[0];
+      this.url = url;
+    }
+
+    function Section(title='', elements=[], scrolling_sens='horizontal') {
+      this.title = title;
+      this.elements = elements;
+      this.scrolling_sens = scrolling_sens;
+    }
+
+    function Infos(title='', img='', type='', details=[], desc='', genres=[], sections=[]) {
+      this.title = title;
+      this.img = img;
+      this.type = type;
+      this.details = details;
+      this.desc = desc;
+      this.genres = genres;
+      this.sections = sections;
+    }
+  </script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/'+file+'.js') }}"></script>
+{% endblock %}

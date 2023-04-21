@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <a href="{{ url_for('static', filename='module_template.json') }}" download><h2>Download module template file</h2></a>
+    <div class="upload">
+      <h2>Upload a new module</h2>
+      <form method="post" action="/upload/">
+        <select name="type"></select>
+        <input type="text" name="site" placeholder="Module name" required><br>
+        <input type="text" name="link" placeholder="Module link" required><br>
+        <input type="submit" value="Submit">
+      </form>
+      <script>
+        Object.keys(modules).forEach(type => {
+            let option = document.createElement('option');
+            option.value = option.innerHTML = type;
+            document.querySelector('form select').appendChild(option)
+        })
+      </script>
+    </div>
+{% endblock %}
