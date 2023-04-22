@@ -56,7 +56,6 @@
   },
   "genre": {
     "request": {
-      "url": "https://wiflix.audio/",
       "headers": {},
       "proxies": false
     },
