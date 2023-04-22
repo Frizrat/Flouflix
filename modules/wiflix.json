@@ -61,7 +61,7 @@
     },
     "javascript_config": {
       "remove": true,
-      "javascript": "function genre(document) { let elements = []; for (let film of document.querySelectorAll('.mov')) { elements.push(new Element( new Link(film.querySelector('a')['href']), film.querySelector('.mov-t').textContent, new Img('https://wiflix.biz/wfimages/' + film.querySelector('img')['src'].split('=')[1], 'portrait'), '', film.querySelector('.ml-desc').textContent, Array.from(film.querySelectorAll('.ml-desc')).slice(-2)[0].textContent, Array.from(film.querySelectorAll('.nbloc3 a')).map(genre => new Genre_Player(genre.textContent)) )) } return [new Section(document.title.split('- ')[1], elements, 'vertical')];}"
+      "javascript": "function genre(document) { let elements = []; for (let film of document.querySelectorAll('.mov')) { elements.push(new Element( new Link(film.querySelector('a')['href']), film.querySelector('.mov-t').textContent, new Img('https://wiflix.biz/wfimages/' + film.querySelector('img')['src'].split('=')[1], 'portrait'), '', film.querySelector('.ml-desc').textContent, Array.from(film.querySelectorAll('.ml-desc')).slice(-2)[0].textContent, Array.from(film.querySelectorAll('.nbloc3 a')).map(genre => new Genre_Player(genre.textContent, genre.href)) )) } return [new Section(document.title.split('- ')[1], elements, 'vertical')];}"
     }
   }
 }
