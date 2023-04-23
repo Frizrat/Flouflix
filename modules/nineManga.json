@@ -1,0 +1,64 @@
+{
+  "module_infos": {
+    "module_name": "NineManga",
+    "img": "https://www.ninemanga.com/files/img/ninemanga.png",
+    "initials": "NM",
+    "language": "FR",
+    "developer": "Frizrat",
+    "desc": "Module for NineManga"
+  },
+  "main": {
+    "request": {
+      "url": "https://fr.ninemanga.com/",
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction main(document) { let sections = []; for (let section of /* sections */) { let elements = []; for (let film of /* elements */) { elements.push(new Element( new Link(''), /* Link */, /* Headers */, /* Proxies */ '', /* Title */ '',/* Image */, /* portrait | landscape | square */ '',/* Detail top green */ '',/* Detail top surrounded */ '',/* Detail top right */ [new Genre_Player()]/* Deatil bottom */ } sections.push(new Section(/* section name */, elements, /* element type */, /* scrolling sens */)) } return sections;}"
+    }
+  },
+  "search": {
+    "request": {
+      "url": "${search.s}${search.page}",
+      "first_page": 1,
+      "page_spacing": 1,
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction search(document) { let sections = []; for (let section of /* sections */) { let elements = []; for (let film of /* elements */) { elements.push(new Element( new Link(''), /* Link */, /* Headers */, /* Proxies */ '', /* Title */ '',/* Image */, /* portrait | landscape | square */ '',/* Detail top green */ '',/* Detail top surrounded */ '',/* Detail top right */ [new Genre_Player()]/* Deatil bottom */ } sections.push(new Section(/* section name */, elements, /* element type */, /* scrolling sens */)) } return sections;}"
+    }
+  },
+  "info": {
+    "request": {
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction info(document) { let infos = new Infos; infos.title = '';/* Title */ infos.img = '';/* Image */ infos.type = '';/* Type next to Flouflix icon */ infos.details = [];/* Details under the title */ infos.desc = '';/* Desc */ infos.genres = [new Genre_Player('')]; /* Genres under the desc */ infos.sections.push(new Section(/* section name */, /* elements */, /* element type */, /* scrolling sens */)) return infos}"
+    }
+  },
+  "video": {
+    "request": {
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction video(document) { let players = [new Genre_Player('', '')]; /* Player name (not necessary) */, /* link */ return players;}"
+    }
+  },
+  "genre": {
+    "request": {
+      "headers": {},
+      "proxies": false
+    },
+    "javascript_config": {
+      "remove": true,
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction genre(document) { let sections = []; for (let section of /* sections */) { let elements = []; for (let film of /* elements */) { elements.push(new Element( new Link(''), /* Link */, /* Headers */, /* Proxies */ '', /* Title */ '',/* Image */, /* portrait | landscape | square */ '',/* Detail top green */ '',/* Detail top surrounded */ '',/* Detail top right */ [new Genre_Player()]/* Deatil bottom */ } sections.push(new Section(/* section name */, elements, /* element type */, /* scrolling sens */)) } return sections;}"
+    }
+  }
+}
