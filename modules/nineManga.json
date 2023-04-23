@@ -41,14 +41,14 @@
       "javascript": "function info(document) { const replace_url = (url) => url.replace(window.origin, request.url.split('/manga')[0]); let infos = new Infos; infos.title = document.querySelector('h1').textContent.split('Manga')[0]; infos.img = document.querySelector('.bookface img').src; infos.type = 'Manga'; infos.desc = document.querySelector('[itemprop=\"depion\"]').textContent; let msg = document.querySelector('.message'); infos.details = Array.from(msg.querySelectorAll('li')).slice(0,-2).map(li => li.textContent.split(': ')[1]; infos.genres = Array.from(msg.querySelectorAll('a')).slice(0, -4).map(a => new Genre_Player(a.textContent, replace_url(a.href))); const chapterbox = document.querySelector('.chapterbox'); infos.sections.push(new Section(chapterbox.querySelector('h1').textContent, Array.from(chapterbox.querySelectorAll('.chapterbox li')).map(element => { let a = element.querySelector('a'); return new Element(new Link(a.href), a.textContent, infos.img, '', element.querySelector('span').textContent) }).reverse(), 'portrait', 'vertical')); return infos}"
     }
   },
-  "video": {
+  "image": {
     "request": {
       "headers": {},
       "proxies": false
     },
     "javascript_config": {
       "remove": true,
-      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction video(document) { let players = [new Genre_Player('', '')]; /* Player name (not necessary) */, /* link */ return players;}"
+      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction image(document) { let players = [new Genre_Player('', '')]; /* Player name (not necessary) */, /* link */ return players;}"
     }
   },
   "genre": {
@@ -58,7 +58,7 @@
     },
     "javascript_config": {
       "remove": true,
-      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction genre(document) { let sections = []; for (let section of /* sections */) { let elements = []; for (let film of /* elements */) { elements.push(new Element( new Link(''), /* Link */, /* Headers */, /* Proxies */ '', /* Title */ '',/* Image */, /* portrait | landscape | square */ '',/* Detail top green */ '',/* Detail top surrounded */ '',/* Detail top right */ [new Genre_Player()]/* Deatil bottom */ } sections.push(new Section(/* section name */, elements, /* element type */, /* scrolling sens */)) } return sections;}"
+      "javascript": "function genre(document) { let elements = Array.from(document.querySelectorAll('.bookinfo')).map(element => { let a = element.querySelector('a.bookname'); return new Element(new Link(a.href+'?waring=1'), a.textContent, element.querySelector('img').src, element.querySelector('span').textContent, element.querySelector('.chaptername').textContent.replace(a.textContent, '').trim(), '', [new Genre_Player(element.querySelector('p').textContent)]) }); return [new Section('', elements, 'portrait', 'vertical')];}"
     }
   }
 }
