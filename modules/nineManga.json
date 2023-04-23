@@ -15,7 +15,7 @@
     },
     "javascript_config": {
       "remove": true,
-      "javascript": "function main(document) { let sections = []; [['.pop_update', 'font'], ['.rightbox', 'span']].forEach(([s1, s2]) => { let elements = []; document.querySelectorAll(s1+' > ul').forEach((section, i) => { section.querySelectorAll('li').forEach(element => { let a = element.querySelector('a'); let img = a.querySelector('img'); elements.push(new Element( new Link(a.href+'?waring=1'), img.alt, element.querySelector('img').src, '', element.querySelector(s2).textContent.replace(img.alt, '').trim() )); }); sections.push(new Section(document.querySelectorAll(s1+' h1')[i].textContent, elements)); }); }); return sections;}"
+      "javascript": "function main(document) { let sections = []; [['.pop_update', 'font'], ['.rightbox', 'span']].forEach(([s1, s2]) => { document.querySelectorAll(s1+' > ul').forEach((section, i) => { let elements = []; section.querySelectorAll('li').forEach(element => { let a = element.querySelector('a'); let img = a.querySelector('img'); elements.push(new Element( new Link(a.href+'?waring=1'), img.alt, element.querySelector('img').src, '', element.querySelector(s2).textContent.replace(img.alt, '').trim() )); }); sections.push(new Section(document.querySelectorAll(s1+' h1')[i].textContent, elements)); }); }); return sections;}"
     }
   },
   "search": {
