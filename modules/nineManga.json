@@ -28,7 +28,7 @@
     },
     "javascript_config": {
       "remove": true,
-      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction search(document) { let sections = []; for (let section of /* sections */) { let elements = []; for (let film of /* elements */) { elements.push(new Element( new Link(''), /* Link */, /* Headers */, /* Proxies */ '', /* Title */ '',/* Image */, /* portrait | landscape | square */ '',/* Detail top green */ '',/* Detail top surrounded */ '',/* Detail top right */ [new Genre_Player()]/* Deatil bottom */ } sections.push(new Section(/* section name */, elements, /* element type */, /* scrolling sens */)) } return sections;}"
+      "javascript": "function search(document) { let elements = Array.from(document.querySelectorAll('.bookinfo')).map(element => { let a = element.querySelector('a.bookname'); return new Element(new Link(a.href+'?waring=1'), a.textContent, element.querySelector('img').src, element.querySelector('span').textContent, element.querySelector('.chaptername').textContent.replace(a.textContent, '').trim(), '', [new Genre_Player(element.querySelector('p').textContent)]) }); return [new Section('', elements, 'portrait', 'vertical')];}"
     }
   },
   "info": {
