@@ -20,7 +20,7 @@
   },
   "search": {
     "request": {
-      "url": "${search.s}${search.page}",
+      "url": "https://fr.ninemanga.com/search/?wd=${search.s}&page=${search.page}.html",
       "first_page": 1,
       "page_spacing": 1,
       "headers": {},
