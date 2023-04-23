@@ -1,10 +1,7 @@
 {
   "module_infos": {
     "module_name": "Wiflix",
-    "img": {
-      "url": "https://wiflix.audio/templates/wiflixnew/images/logo.png",
-      "style": "object-fit: contain;"
-    },
+    "img": "https://wiflix.audio/templates/wiflixnew/images/logo.png",
     "initials": "WF",
     "language": "FR",
     "developer": "Frizrat",
