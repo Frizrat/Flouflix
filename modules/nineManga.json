@@ -15,7 +15,7 @@
     },
     "javascript_config": {
       "remove": true,
-      "javascript": "/* Complete and remove commentary */\n/* Don't use '\"' or put a '\\' before */\n/* Never forget ';' */\n/* Go on https://beautifier.io/ to format your code */\n/* Go on https://www.textfixer.com/html/compress-html-compression.php to compress your code */\nfunction main(document) { let sections = []; for (let section of /* sections */) { let elements = []; for (let film of /* elements */) { elements.push(new Element( new Link(''), /* Link */, /* Headers */, /* Proxies */ '', /* Title */ '',/* Image */, /* portrait | landscape | square */ '',/* Detail top green */ '',/* Detail top surrounded */ '',/* Detail top right */ [new Genre_Player()]/* Deatil bottom */ } sections.push(new Section(/* section name */, elements, /* element type */, /* scrolling sens */)) } return sections;}"
+      "javascript": "function main(document) { let sections = []; [['.pop_update', 'font'], ['.rightbox', 'span']].forEach(([s1, s2]) => { let elements = []; document.querySelectorAll(s1+' > ul').forEach((section, i) => { section.querySelectorAll('li').forEach(element => { let a = element.querySelector('a'); let img = a.querySelector('img'); elements.push(new Element( new Link(a.href+'?waring=1'), img.alt, element.querySelector('img').src, '', element.querySelector(s2).textContent.replace(img.alt, '').trim() )); }); sections.push(new Section(document.querySelectorAll(s1+' h1')[i].textContent, elements)); }); }); return sections;}"
     }
   },
   "search": {
